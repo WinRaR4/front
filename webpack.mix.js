@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const { resolve } = require('path');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,7 +12,15 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+mix
+    .js('resources/scripts/main.js', 'public/build')
+    .sass('resources/styles/main.scss', 'public/build')
+    .browserSync({
+        proxy: 'localhost',
+        files: [
+            'public/**/*',
+            'resources/**/*/.twig',
+            'resources/**/*/.php',
+        ],
+    });
+mix.alias({'uikit-util': resolve(__dirname, 'node_modules/uikit/src/js/util')});

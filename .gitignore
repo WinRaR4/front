@@ -1,14 +1,23 @@
 /node_modules
 /public/hot
 /public/storage
+/public/build
+/public/js
+/public/css
+/public/mix-manifest.json 
+/public/mix-manifest.json
+/public/bundle 
 /storage/*.key
 /vendor
 .env
 .env.backup
 .phpunit.result.cache
+.composer.lock
 Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+# Без докера новые файлы не добавляются в public при запуске (sail npm run dev)
+# Потому ничего в гитигнор не добавил
